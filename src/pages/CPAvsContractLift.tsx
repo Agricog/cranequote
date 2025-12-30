@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { craneTypes, getCraneById } from '../data/craneTypes';
 import { regions, getRegionById } from '../data/regions';
+import { formatRange, CONTRACT_LIFT_MULTIPLIER } from '../data/pricingData';
 
 const faqs = [
   {
