@@ -16,6 +16,7 @@ import {
   AlertTriangle,
   Info
 } from 'lucide-react';
+import { calculateTransportCost, formatRange } from '../data/pricingData';
 
 const faqs = [
   {
