@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* CraneQuote Design Tokens */
+@theme {
+  /* Primary Colors - Deep Blue */
+  --color-primary-50: #e6eaf0;
+  --color-primary-100: #ccd5e1;
+  --color-primary-200: #99abc3;
+  --color-primary-300: #6681a5;
+  --color-primary-400: #335787;
+  --color-primary-500: #1a365d;
+  --color-primary-600: #152b4a;
+  --color-primary-700: #102038;
+  --color-primary-800: #0a1525;
+  --color-primary-900: #050b13;
+
+  /* Accent Colors - Orange/Amber */
+  --color-accent-50: #fef7ed;
+  --color-accent-100: #fdeeda;
+  --color-accent-200: #fbddb5;
+  --color-accent-300: #f9cc90;
+  --color-accent-400: #f7bb6b;
+  --color-accent-500: #f6ad55;
+  --color-accent-600: #dd9c4d;
+  --color-accent-700: #c48a44;
+  --color-accent-800: #ab793c;
+  --color-accent-900: #926833;
+
+  /* Success */
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+
+  /* Warning */
+  --color-warning-500: #eab308;
+  --color-warning-600: #ca8a04;
+
+  /* Error */
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+
+  /* Fonts */
+  --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 text-white px-6 py-3 rounded-xl font-semibold
+           hover:bg-primary-600 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-accent {
+    @apply bg-accent-500 text-primary-900 px-6 py-3 rounded-xl font-semibold
+           hover:bg-accent-600 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-xl font-semibold
+           hover:bg-primary-50 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg p-6 md:p-8;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl
+           focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20
+           transition-colors duration-200;
+  }
+
+  .select {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl
+           focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20
+           transition-colors duration-200 bg-white cursor-pointer;
+  }
+
+  .calculator-result {
+    @apply bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl p-6 text-white;
+  }
+
+  .step-indicator {
+    @apply w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center 
+           text-primary-600 font-bold text-sm;
+  }
+
+  .quick-chip {
+    @apply px-3 py-1 rounded-lg text-sm font-medium transition-colors cursor-pointer;
+  }
+
+  .quick-chip-active {
+    @apply bg-primary-500 text-white;
+  }
+
+  .quick-chip-inactive {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent;
+  }
+
+  .bg-grid {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a365d' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
