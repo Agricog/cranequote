@@ -4,7 +4,6 @@ import { SEOHead } from '../components/layout';
 import {
   PoundSterling,
   Calculator,
-  CheckCircle2,
   Clock,
   MapPin,
   Users,
