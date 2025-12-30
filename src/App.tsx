@@ -7,11 +7,12 @@ import CraneSizeCalculator from './pages/CraneSizeCalculator';
 import HireCostCalculator from './pages/HireCostCalculator';
 import CPAvsContractLift from './pages/CPAvsContractLift';
 import TransportCalculator from './pages/TransportCalculator';
+import TotalProjectCost from './pages/TotalProjectCost';
 
 const ComingSoon = ({ title }: { title: string }) => (
   <div className="max-w-4xl mx-auto px-4 py-16 text-center">
     <h1 className="text-3xl font-bold text-gray-900 mb-4">{title}</h1>
-    <p className="text-gray-600 mb-8">This calculator is coming soon. Check back shortly!</p>
+    <p className="text-gray-600 mb-8">This page is coming soon. Check back shortly!</p>
     <a href="/" className="btn-primary">Back to Home</a>
   </div>
 );
@@ -27,7 +28,7 @@ function App() {
             <Route path="crane-hire-cost-calculator" element={<HireCostCalculator />} />
             <Route path="cpa-vs-contract-lift" element={<CPAvsContractLift />} />
             <Route path="transport-cost-calculator" element={<TransportCalculator />} />
-            <Route path="total-project-cost" element={<ComingSoon title="Total Project Cost" />} />
+            <Route path="total-project-cost" element={<TotalProjectCost />} />
             <Route path="get-quotes" element={<GetQuotesPage />} />
             <Route path="about" element={<ComingSoon title="About CraneQuote" />} />
             <Route path="privacy-policy" element={<ComingSoon title="Privacy Policy" />} />
