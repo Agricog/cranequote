@@ -3,6 +3,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/layout';
 import HomePage from './pages/HomePage';
 import GetQuotesPage from './pages/GetQuotesPage';
+import CraneSizeCalculator from './pages/CraneSizeCalculator';
 
 const ComingSoon = ({ title }: { title: string }) => (
   <div className="max-w-4xl mx-auto px-4 py-16 text-center">
@@ -19,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="crane-size-calculator" element={<ComingSoon title="Crane Size Calculator" />} />
+            <Route path="crane-size-calculator" element={<CraneSizeCalculator />} />
             <Route path="crane-hire-cost-calculator" element={<ComingSoon title="Hire Cost Estimator" />} />
             <Route path="cpa-vs-contract-lift" element={<ComingSoon title="CPA vs Contract Lift" />} />
             <Route path="transport-cost-calculator" element={<ComingSoon title="Transport Calculator" />} />
