@@ -6,6 +6,7 @@ import GetQuotesPage from './pages/GetQuotesPage';
 import CraneSizeCalculator from './pages/CraneSizeCalculator';
 import HireCostCalculator from './pages/HireCostCalculator';
 import CPAvsContractLift from './pages/CPAvsContractLift';
+import TransportCalculator from './pages/TransportCalculator';
 
 const ComingSoon = ({ title }: { title: string }) => (
   <div className="max-w-4xl mx-auto px-4 py-16 text-center">
@@ -25,7 +26,7 @@ function App() {
             <Route path="crane-size-calculator" element={<CraneSizeCalculator />} />
             <Route path="crane-hire-cost-calculator" element={<HireCostCalculator />} />
             <Route path="cpa-vs-contract-lift" element={<CPAvsContractLift />} />
-            <Route path="transport-cost-calculator" element={<ComingSoon title="Transport Calculator" />} />
+            <Route path="transport-cost-calculator" element={<TransportCalculator />} />
             <Route path="total-project-cost" element={<ComingSoon title="Total Project Cost" />} />
             <Route path="get-quotes" element={<GetQuotesPage />} />
             <Route path="about" element={<ComingSoon title="About CraneQuote" />} />
