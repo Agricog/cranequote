@@ -20,7 +20,6 @@ import {
 } from 'lucide-react';
 import { craneTypes, getCraneById } from '../data/craneTypes';
 import { regions, getRegionById } from '../data/regions';
-import { formatCurrency, formatRange, CONTRACT_LIFT_MULTIPLIER } from '../data/pricingData';
 
 const faqs = [
   {
@@ -144,7 +143,6 @@ export default function CPAvsContractLift() {
   const [result, setResult] = useState<ComparisonResult | null>(null);
 
   const selectedCrane = craneType ? getCraneById(craneType) : null;
-  const selectedRegion = getRegionById(region);
 
   const calculate = () => {
     if (!craneType || !tonnage) {
