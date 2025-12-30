@@ -175,4 +175,139 @@ export const calculateTransportCost = (
   let category: keyof typeof transportCosts;
   
   if (tonnage < 50) category = 'small';
-  else if (tonn
+  else if (tonnage < 100) category = 'medium';
+  else if (tonnage < 200) category = 'large';
+  else category = 'heavy';
+
+  const config = transportCosts[category];
+
+  const baseCost = config.baseCost;
+  const mileageCost = {
+    min: Math.round(config.perMile.min * distanceMiles),
+    max: Math.round(config.perMile.max * distanceMiles),
+  };
+
+  let escortCost;
+  if (config.escortRequired) {
+    escortCost = config.escortCost;
+  }
+
+  const total = {
+    min: baseCost.min + mileageCost.min + (escortCost?.min || 0),
+    max: baseCost.max + mileageCost.max + (escortCost?.max || 0),
+  };
+
+  return {
+    baseCost,
+    mileageCost,
+    escortCost,
+    total,
+    escortRequired: config.escortRequired,
+  };
+};
+
+// Crane size recommendation based on lift requirements
+export interface CraneSizeRecommendation {
+  recommendedTonnage: { min: number; max: number };
+  craneTypes: string[];
+  warnings: string[];
+  notes: string[];
+}
+
+export const recommendCraneSize = (
+  loadWeightKg: number,
+  radiusMeters: number,
+  heightMeters: number,
+  groundCondition: 'hard' | 'soft' | 'unknown' = 'hard',
+  siteAccess: 'easy' | 'restricted' | 'tight' = 'easy'
+): CraneSizeRecommendation => {
+  // Convert to tonnes
+  const loadTonnes = loadWeightKg / 1000;
+  
+  // Safety factor (typically 25% margin)
+  const safetyFactor = 1.25;
+  
+  // Radius factor - capacity decreases significantly with distance
+  // This is a simplified model; real load charts are complex
+  let radiusFactor = 1.0;
+  if (radiusMeters > 30) radiusFactor = 2.0;
+  else if (radiusMeters > 20) radiusFactor = 1.6;
+  else if (radiusMeters > 15) radiusFactor = 1.4;
+  else if (radiusMeters > 10) radiusFactor = 1.2;
+
+  // Height factor - affects required boom length
+  let heightFactor = 1.0;
+  if (heightMeters > 40) heightFactor = 1.3;
+  else if (heightMeters > 25) heightFactor = 1.15;
+
+  // Calculate required capacity
+  const requiredCapacity = loadTonnes * safetyFactor * radiusFactor * heightFactor;
+
+  // Add margin for practical selection
+  const recommendedMin = Math.ceil(requiredCapacity * 0.9 / 5) * 5; // Round to nearest 5
+  const recommendedMax = Math.ceil(requiredCapacity * 1.3 / 5) * 5;
+
+  // Determine suitable crane types
+  const suitableTypes: string[] = [];
+  const warnings: string[] = [];
+  const notes: string[] = [];
+
+  // Check which crane types can handle this
+  craneTypes.forEach(crane => {
+    const maxTonnage = Math.max(...crane.tonnageRanges.map(r => r.max));
+    if (maxTonnage >= recommendedMin) {
+      suitableTypes.push(crane.id);
+    }
+  });
+
+  // Ground condition considerations
+  if (groundCondition === 'soft') {
+    warnings.push('Soft ground may require crawler crane or ground matting');
+    if (!suitableTypes.includes('crawler')) {
+      suitableTypes.unshift('crawler');
+    }
+  }
+
+  // Site access considerations
+  if (siteAccess === 'tight') {
+    warnings.push('Restricted access may limit crane options - city crane recommended');
+    if (suitableTypes.includes('city')) {
+      suitableTypes.unshift('city');
+    }
+  } else if (siteAccess === 'restricted') {
+    notes.push('Consider access route for larger cranes');
+  }
+
+  // Height considerations
+  if (heightMeters > 30) {
+    notes.push('Height above 30m may require specialist lift planning');
+  }
+
+  // Heavy lift considerations
+  if (requiredCapacity > 100) {
+    notes.push('Heavy lift may require tandem crane operation or specialist equipment');
+    warnings.push('Recommend professional lift survey before hire');
+  }
+
+  return {
+    recommendedTonnage: { min: recommendedMin, max: recommendedMax },
+    craneTypes: [...new Set(suitableTypes)].slice(0, 4), // Top 4 suitable types
+    warnings,
+    notes,
+  };
+};
+
+// Format currency
+export const formatCurrency = (amount: number): string => {
+  return new Intl.NumberFormat('en-GB', {
+    style: 'currency',
+    currency: 'GBP',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+};
+
+// Format range
+export const formatRange = (min: number, max: number): string => {
+  return `${formatCurrency(min)} - ${formatCurrency(max)}`;
+};
