@@ -21,7 +21,6 @@ import {
 } from 'lucide-react';
 import { craneTypes, getCraneById } from '../data/craneTypes';
 import { regions, getRegionById } from '../data/regions';
-import { calculateHireCost, calculateTransportCost, formatCurrency, formatRange, CONTRACT_LIFT_MULTIPLIER, ancillaryCosts } from '../data/pricingData';
 
 const faqs = [
   {
@@ -127,7 +126,6 @@ export default function TotalProjectCost() {
   const [result, setResult] = useState<ProjectCostResult | null>(null);
 
   const selectedCrane = craneType ? getCraneById(craneType) : null;
-  const selectedRegion = getRegionById(region);
 
   const calculate = () => {
     if (!craneType || !tonnage) {
