@@ -1,0 +1,13 @@
+# CraneQuote.co.uk Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://cranequote.co.uk/sitemap.xml
+
+# Disallow admin/private areas (if any exist in future)
+Disallow: /api/
+Disallow: /admin/
+
+# Crawl-delay for polite crawlers
+Crawl-delay: 1
