@@ -5,7 +5,6 @@ import {
   MapPin,
   Users,
   Shield,
-  Phone,
   Mail,
   Building2,
   HelpCircle,
