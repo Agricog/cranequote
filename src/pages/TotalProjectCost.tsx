@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { craneTypes, getCraneById } from '../data/craneTypes';
 import { regions, getRegionById } from '../data/regions';
+import { calculateHireCost, calculateTransportCost, formatRange, ancillaryCosts } from '../data/pricingData';
 
 const faqs = [
   {
