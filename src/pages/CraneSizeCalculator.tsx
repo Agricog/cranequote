@@ -638,7 +638,7 @@ export default function CraneSizeCalculator() {
         <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
           <span className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
-            Last updated: January 2025
+            Last updated: January 2026
           </span>
           <span className="flex items-center gap-1">
             <MapPin className="w-4 h-4" />
