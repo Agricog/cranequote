@@ -14,7 +14,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [calculatorsOpen, setCalculatorsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
   // Close mobile menu on route change
@@ -170,3 +170,5 @@ export function Header() {
     </header>
   );
 }
+
+export default Header;
