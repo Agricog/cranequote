@@ -266,7 +266,7 @@ export default function CPAvsContractLift() {
     <>
       <SEOHead
         title="CPA Hire vs Contract Lift Calculator UK | Compare Options"
-        description="Compare CPA crane hire vs contract lift costs and responsibilities. Free calculator shows price difference, what's included, and which option suits your project. UK 2025 pricing."
+        description="Compare CPA crane hire vs contract lift costs and responsibilities. Free calculator shows price difference, what's included, and which option suits your project. UK 2026 pricing."
         keywords="CPA hire vs contract lift, crane hire options, contract lift cost, CPA crane hire, lifting operations, appointed person, crane hire comparison, contract lift vs CPA"
         canonicalUrl="/cpa-vs-contract-lift"
         breadcrumbs={[
@@ -308,7 +308,7 @@ export default function CPAvsContractLift() {
           <div className="flex flex-wrap items-center gap-4 mt-4 text-primary-200 text-sm">
             <span className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
-              Updated January 2025
+              Updated January 2026
             </span>
             <span className="flex items-center gap-1">
               <Users className="w-4 h-4" />
