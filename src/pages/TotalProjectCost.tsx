@@ -343,7 +343,7 @@ export default function TotalProjectCost() {
           <div className="flex flex-wrap items-center gap-4 mt-4 text-primary-200 text-sm">
             <span className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
-              Updated January 2025
+              Updated January 2026
             </span>
             <span className="flex items-center gap-1">
               <Users className="w-4 h-4" />
