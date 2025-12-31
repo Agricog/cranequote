@@ -12,14 +12,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
 import AboutPage from './pages/AboutPage';
-
-const ComingSoon = ({ title }: { title: string }) => (
-  <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-    <h1 className="text-3xl font-bold text-gray-900 mb-4">{title}</h1>
-    <p className="text-gray-600 mb-8">This page is coming soon. Check back shortly!</p>
-    <a href="/" className="btn-primary">Back to Home</a>
-  </div>
-);
+import CraneHireGuide from './pages/CraneHireGuide';
 
 function App() {
   return (
@@ -38,7 +31,7 @@ function App() {
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="cookie-policy" element={<CookiePolicy />} />
-            <Route path="crane-hire-guide" element={<ComingSoon title="Crane Hire Guide" />} />
+            <Route path="crane-hire-guide" element={<CraneHireGuide />} />
             <Route path="*" element={
               <div className="max-w-4xl mx-auto px-4 py-16 text-center">
                 <h1 className="text-6xl font-bold text-primary-500 mb-4">404</h1>
