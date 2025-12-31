@@ -93,7 +93,7 @@ export default function CraneHireGuide() {
   return (
     <>
       <SEOHead
-        title="Complete UK Crane Hire Guide 2025 | Everything You Need to Know"
+        title="Complete UK Crane Hire Guide 2026 | Everything You Need to Know"
         description="Comprehensive guide to crane hire in the UK. Learn about crane types, costs, CPA vs contract lift, safety regulations, and how to choose the right crane."
         keywords="crane hire guide, UK crane hire, how to hire a crane, crane types UK, crane hire costs, CPA hire, contract lift"
         canonicalUrl="/crane-hire-guide"
@@ -118,7 +118,7 @@ export default function CraneHireGuide() {
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold">The Complete UK Crane Hire Guide</h1>
-              <p className="text-primary-200 mt-1">Everything you need to know in 2025</p>
+              <p className="text-primary-200 mt-1">Everything you need to know in 2026</p>
             </div>
           </div>
           <p className="text-primary-100 max-w-3xl text-lg">
