@@ -8,6 +8,10 @@ import HireCostCalculator from './pages/HireCostCalculator';
 import CPAvsContractLift from './pages/CPAvsContractLift';
 import TransportCalculator from './pages/TransportCalculator';
 import TotalProjectCost from './pages/TotalProjectCost';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
+import AboutPage from './pages/AboutPage';
 
 const ComingSoon = ({ title }: { title: string }) => (
   <div className="max-w-4xl mx-auto px-4 py-16 text-center">
@@ -30,10 +34,10 @@ function App() {
             <Route path="transport-cost-calculator" element={<TransportCalculator />} />
             <Route path="total-project-cost" element={<TotalProjectCost />} />
             <Route path="get-quotes" element={<GetQuotesPage />} />
-            <Route path="about" element={<ComingSoon title="About CraneQuote" />} />
-            <Route path="privacy-policy" element={<ComingSoon title="Privacy Policy" />} />
-            <Route path="terms-of-service" element={<ComingSoon title="Terms of Service" />} />
-            <Route path="cookie-policy" element={<ComingSoon title="Cookie Policy" />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms-of-service" element={<TermsOfService />} />
+            <Route path="cookie-policy" element={<CookiePolicy />} />
             <Route path="crane-hire-guide" element={<ComingSoon title="Crane Hire Guide" />} />
             <Route path="*" element={
               <div className="max-w-4xl mx-auto px-4 py-16 text-center">
