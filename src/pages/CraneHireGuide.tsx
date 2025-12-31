@@ -14,8 +14,6 @@ import {
   Shield,
   HelpCircle,
   ChevronRight,
-  Building2,
-  Cog,
   ClipboardList
 } from 'lucide-react';
 
@@ -108,6 +106,79 @@ const faqs = [
   {
     q: 'What ground conditions do cranes need?',
     a: 'Cranes need stable, level ground to operate safely. Mobile cranes use outriggers that spread the load, but still need firm ground or crane mats. Crawler cranes can work on softer ground. Your crane company will assess ground conditions during planning.'
+  }
+];
+
+const hiringSteps = [
+  {
+    step: 1,
+    title: 'Define Your Requirements',
+    description: 'Determine load weight, lift radius, height, site access, and dates. The more accurate your information, the better quotes you\'ll receive.'
+  },
+  {
+    step: 2,
+    title: 'Get Multiple Quotes',
+    description: 'Request quotes from 2-3 crane companies. Compare not just price, but what\'s included, company reputation, and availability.'
+  },
+  {
+    step: 3,
+    title: 'Site Survey (if needed)',
+    description: 'For complex lifts, the crane company may want to visit the site. This ensures they recommend the right crane and identify any issues.'
+  },
+  {
+    step: 4,
+    title: 'Confirm Booking',
+    description: 'Once you\'ve chosen a company, confirm the booking in writing. Clarify what\'s included, cancellation terms, and payment schedule.'
+  },
+  {
+    step: 5,
+    title: 'Pre-Lift Planning',
+    description: 'For contract lift, the crane company handles this. For CPA hire, your Appointed Person prepares the lift plan and risk assessment.'
+  },
+  {
+    step: 6,
+    title: 'Lift Day',
+    description: 'Crane arrives, sets up, and performs the lift. Ensure site is ready – clear access, ground prepared, and all personnel briefed.'
+  },
+  {
+    step: 7,
+    title: 'Completion & Payment',
+    description: 'Once the lift is complete and crane has left, you\'ll receive an invoice. Payment terms vary but are typically 14-30 days.'
+  }
+];
+
+const tips = [
+  {
+    title: 'Book Early',
+    tip: 'Especially for larger cranes or busy periods. 2-3 weeks minimum for standard hire, longer for specialist equipment.'
+  },
+  {
+    title: 'Be Accurate with Requirements',
+    tip: 'Measure load weights and distances carefully. Underestimating means the crane can\'t do the job; overestimating means you pay for more crane than needed.'
+  },
+  {
+    title: 'Get Multiple Quotes',
+    tip: 'Prices vary significantly. Getting 3 quotes helps you understand the market rate and find the best value.'
+  },
+  {
+    title: 'Clarify What\'s Included',
+    tip: 'Ensure you understand exactly what\'s covered in the quote – transport, operator hours, fuel, insurance, etc.'
+  },
+  {
+    title: 'Prepare Your Site',
+    tip: 'Clear access, stable ground, and a safe working area. Delays caused by site issues are typically charged to you.'
+  },
+  {
+    title: 'Check Weather Forecasts',
+    tip: 'High winds can prevent crane operations. Monitor forecasts and have contingency plans for weather delays.'
+  },
+  {
+    title: 'Communicate Clearly',
+    tip: 'Brief everyone involved. Make sure the crane operator knows exactly what\'s being lifted and where it\'s going.'
+  },
+  {
+    title: 'Consider Contract Lift for Complex Lifts',
+    tip: 'The extra cost is often worth it for the peace of mind and transferred liability on difficult operations.'
   }
 ];
 
@@ -217,30 +288,31 @@ export default function CraneHireGuide() {
 
           {/* Main Content */}
           <main className="lg:col-span-3">
-            <article className="prose prose-lg max-w-none">
+            <article className="space-y-12">
               
               {/* Section 1: Introduction */}
-              <section id="introduction" className="scroll-mt-24 mb-12">
+              <section id="introduction" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">1</span>
                   Introduction to Crane Hire
                 </h2>
-                <p>
-                  Crane hire is essential for countless construction, industrial, and even residential projects across the UK. 
-                  From lifting steel beams on a building site to placing a hot tub in a back garden, cranes make it possible 
-                  to move heavy loads safely and efficiently.
-                </p>
-                <p>
-                  The UK crane hire industry includes everything from small owner-operators with a single machine to 
-                  large national fleets with hundreds of cranes. This diversity means there's always a crane available 
-                  for your needs – the challenge is finding the right one at the right price.
-                </p>
-                <p>
-                  This guide will walk you through everything you need to know about hiring a crane in the UK, 
-                  from understanding the different types available to navigating costs and safety requirements.
-                </p>
-                
-                <div className="bg-primary-50 border-l-4 border-primary-500 p-4 my-6 not-prose">
+                <div className="prose prose-lg max-w-none">
+                  <p>
+                    Crane hire is essential for countless construction, industrial, and even residential projects across the UK. 
+                    From lifting steel beams on a building site to placing a hot tub in a back garden, cranes make it possible 
+                    to move heavy loads safely and efficiently.
+                  </p>
+                  <p>
+                    The UK crane hire industry includes everything from small owner-operators with a single machine to 
+                    large national fleets with hundreds of cranes. This diversity means there's always a crane available 
+                    for your needs – the challenge is finding the right one at the right price.
+                  </p>
+                  <p>
+                    This guide will walk you through everything you need to know about hiring a crane in the UK, 
+                    from understanding the different types available to navigating costs and safety requirements.
+                  </p>
+                </div>
+                <div className="bg-primary-50 border-l-4 border-primary-500 p-4 mt-6">
                   <p className="text-primary-800 font-medium">
                     <strong>Key takeaway:</strong> Crane hire doesn't have to be complicated. With the right information 
                     and preparation, you can find the perfect crane for your project at a competitive price.
@@ -249,17 +321,17 @@ export default function CraneHireGuide() {
               </section>
 
               {/* Section 2: Types of Cranes */}
-              <section id="types-of-cranes" className="scroll-mt-24 mb-12">
+              <section id="types-of-cranes" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">2</span>
                   Types of Cranes
                 </h2>
-                <p>
+                <p className="text-gray-700 mb-6">
                   Different projects require different cranes. Understanding the options available helps you 
                   request the right equipment and avoid paying for more crane than you need.
                 </p>
 
-                <div className="not-prose space-y-4 my-6">
+                <div className="space-y-4">
                   {craneTypes.map((crane, index) => (
                     <div key={index} className="bg-white border border-gray-200 rounded-xl p-5">
                       <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
@@ -276,7 +348,7 @@ export default function CraneHireGuide() {
                   ))}
                 </div>
 
-                <div className="not-prose bg-blue-50 rounded-xl p-6 my-6">
+                <div className="bg-blue-50 rounded-xl p-6 mt-6">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <Scale className="w-5 h-5 text-blue-600" />
                     Not sure which crane you need?
@@ -293,19 +365,19 @@ export default function CraneHireGuide() {
               </section>
 
               {/* Section 3: Choosing the Right Crane */}
-              <section id="choosing-right-crane" className="scroll-mt-24 mb-12">
+              <section id="choosing-right-crane" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">3</span>
                   Choosing the Right Crane
                 </h2>
-                <p>
+                <p className="text-gray-700 mb-6">
                   Selecting the correct crane depends on several factors. Getting this right ensures your lift 
                   is safe, efficient, and cost-effective.
                 </p>
 
-                <h3>Key Factors to Consider</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Key Factors to Consider</h3>
                 
-                <div className="not-prose grid md:grid-cols-2 gap-4 my-6">
+                <div className="grid md:grid-cols-2 gap-4 mb-8">
                   <div className="bg-gray-50 rounded-xl p-5">
                     <h4 className="font-bold text-gray-900 mb-2">Load Weight</h4>
                     <p className="text-gray-700 text-sm">
@@ -350,20 +422,19 @@ export default function CraneHireGuide() {
                   </div>
                 </div>
 
-                <h3>The Radius-Capacity Relationship</h3>
-                <p>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">The Radius-Capacity Relationship</h3>
+                <p className="text-gray-700 mb-4">
                   This is the most important concept in crane selection. A crane's lifting capacity 
-                  decreases dramatically as the lift radius increases. A 50-tonne crane might lift 
-                  50 tonnes at 3 metres radius, but only 10 tonnes at 20 metres.
+                  decreases dramatically as the lift radius increases.
                 </p>
 
-                <div className="not-prose overflow-x-auto my-6">
+                <div className="overflow-x-auto mb-6">
                   <table className="min-w-full bg-white border border-gray-200 rounded-xl">
                     <thead className="bg-gray-50">
                       <tr>
                         <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 border-b">Radius</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b">50t Crane Capacity</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b">100t Crane Capacity</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b">50t Crane</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b">100t Crane</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -375,22 +446,22 @@ export default function CraneHireGuide() {
                       <tr><td className="px-4 py-2">25m</td><td className="px-4 py-2 text-center">5t</td><td className="px-4 py-2 text-center">12t</td></tr>
                     </tbody>
                   </table>
-                  <p className="text-sm text-gray-500 mt-2">* Approximate values for illustration. Actual capacities vary by crane model.</p>
                 </div>
+                <p className="text-sm text-gray-500">* Approximate values for illustration. Actual capacities vary by crane model.</p>
               </section>
 
               {/* Section 4: CPA vs Contract Lift */}
-              <section id="cpa-vs-contract" className="scroll-mt-24 mb-12">
+              <section id="cpa-vs-contract" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">4</span>
                   CPA Hire vs Contract Lift
                 </h2>
-                <p>
+                <p className="text-gray-700 mb-6">
                   This is one of the most important decisions when hiring a crane. The two main options 
                   have very different implications for cost, responsibility, and liability.
                 </p>
 
-                <div className="not-prose grid md:grid-cols-2 gap-6 my-6">
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
                     <h3 className="text-xl font-bold text-blue-800 mb-3">CPA Hire</h3>
                     <p className="text-blue-900 mb-4">
@@ -459,18 +530,7 @@ export default function CraneHireGuide() {
                   </div>
                 </div>
 
-                <h3>Which Should You Choose?</h3>
-                <p>
-                  <strong>Choose CPA hire if</strong> you have in-house lifting expertise, an Appointed Person on staff, 
-                  appropriate insurance, and want to reduce costs on straightforward, regular lifts.
-                </p>
-                <p>
-                  <strong>Choose Contract lift if</strong> this is a one-off lift, you don't have lifting expertise, 
-                  the lift is complex, or you want to transfer risk and liability to the crane company. 
-                  Recommended for most occasional crane users.
-                </p>
-
-                <div className="not-prose bg-purple-50 rounded-xl p-6 my-6">
+                <div className="bg-purple-50 rounded-xl p-6">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <FileText className="w-5 h-5 text-purple-600" />
                     Compare the options in detail
@@ -487,39 +547,39 @@ export default function CraneHireGuide() {
               </section>
 
               {/* Section 5: Understanding Costs */}
-              <section id="costs" className="scroll-mt-24 mb-12">
+              <section id="costs" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">5</span>
                   Understanding Costs
                 </h2>
-                <p>
+                <p className="text-gray-700 mb-6">
                   Crane hire costs vary significantly based on crane type, capacity, location, and hire type. 
                   Here's a breakdown of what to expect.
                 </p>
 
-                <h3>Typical Daily Rates (CPA Hire)</h3>
-                <div className="not-prose overflow-x-auto my-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Typical Daily Rates (CPA Hire)</h3>
+                <div className="overflow-x-auto mb-6">
                   <table className="min-w-full bg-white border border-gray-200 rounded-xl">
                     <thead className="bg-gray-50">
                       <tr>
                         <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 border-b">Crane Type</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b">Capacity Range</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b">Capacity</th>
                         <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 border-b">Daily Rate</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr><td className="px-4 py-2 border-b">City Crane</td><td className="px-4 py-2 border-b text-center">13-60t</td><td className="px-4 py-2 border-b text-center font-medium text-primary-600">£400 - £650</td></tr>
                       <tr><td className="px-4 py-2 border-b">Mobile Crane</td><td className="px-4 py-2 border-b text-center">20-100t</td><td className="px-4 py-2 border-b text-center font-medium text-primary-600">£550 - £1,500</td></tr>
-                      <tr><td className="px-4 py-2 border-b">All-Terrain Crane</td><td className="px-4 py-2 border-b text-center">35-220t</td><td className="px-4 py-2 border-b text-center font-medium text-primary-600">£800 - £2,500</td></tr>
+                      <tr><td className="px-4 py-2 border-b">All-Terrain</td><td className="px-4 py-2 border-b text-center">35-220t</td><td className="px-4 py-2 border-b text-center font-medium text-primary-600">£800 - £2,500</td></tr>
                       <tr><td className="px-4 py-2 border-b">Crawler Crane</td><td className="px-4 py-2 border-b text-center">50-500t+</td><td className="px-4 py-2 border-b text-center font-medium text-primary-600">£1,000 - £4,000+</td></tr>
                       <tr><td className="px-4 py-2 border-b">Spider Crane</td><td className="px-4 py-2 border-b text-center">1-10t</td><td className="px-4 py-2 border-b text-center font-medium text-primary-600">£350 - £700</td></tr>
-                      <tr><td className="px-4 py-2">HIAB / Lorry Loader</td><td className="px-4 py-2 text-center">1-25t</td><td className="px-4 py-2 text-center font-medium text-primary-600">£300 - £550</td></tr>
+                      <tr><td className="px-4 py-2">HIAB</td><td className="px-4 py-2 text-center">1-25t</td><td className="px-4 py-2 text-center font-medium text-primary-600">£300 - £550</td></tr>
                     </tbody>
                   </table>
                 </div>
 
-                <h3>Additional Costs to Budget For</h3>
-                <div className="not-prose grid md:grid-cols-2 gap-4 my-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Additional Costs</h3>
+                <div className="grid md:grid-cols-2 gap-4 mb-6">
                   <div className="bg-gray-50 rounded-xl p-4">
                     <h4 className="font-bold text-gray-900 mb-2">Transport / Mobilisation</h4>
                     <p className="text-gray-700 text-sm mb-2">Getting the crane to and from your site.</p>
@@ -527,29 +587,22 @@ export default function CraneHireGuide() {
                   </div>
                   <div className="bg-gray-50 rounded-xl p-4">
                     <h4 className="font-bold text-gray-900 mb-2">Slingers / Banksmen</h4>
-                    <p className="text-gray-700 text-sm mb-2">Required for CPA hire (you provide).</p>
+                    <p className="text-gray-700 text-sm mb-2">Required for CPA hire.</p>
                     <p className="text-primary-600 font-medium">£160 - £280/day each</p>
                   </div>
                   <div className="bg-gray-50 rounded-xl p-4">
                     <h4 className="font-bold text-gray-900 mb-2">Appointed Person</h4>
-                    <p className="text-gray-700 text-sm mb-2">Required for CPA hire (you provide).</p>
+                    <p className="text-gray-700 text-sm mb-2">Required for CPA hire.</p>
                     <p className="text-primary-600 font-medium">£400 - £800/day</p>
                   </div>
                   <div className="bg-gray-50 rounded-xl p-4">
                     <h4 className="font-bold text-gray-900 mb-2">Permits</h4>
-                    <p className="text-gray-700 text-sm mb-2">Road closures, airspace, etc. if needed.</p>
+                    <p className="text-gray-700 text-sm mb-2">Road closures, airspace, etc.</p>
                     <p className="text-primary-600 font-medium">£50 - £500+</p>
                   </div>
                 </div>
 
-                <h3>Regional Price Variations</h3>
-                <p>
-                  Crane hire prices vary by region due to local supply, demand, and operating costs. 
-                  London and the South East are typically 15-30% above national average, while 
-                  Northern regions and Scotland may be 5-10% below.
-                </p>
-
-                <div className="not-prose bg-green-50 rounded-xl p-6 my-6">
+                <div className="bg-green-50 rounded-xl p-6">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <PoundSterling className="w-5 h-5 text-green-600" />
                     Get a personalised cost estimate
@@ -566,53 +619,17 @@ export default function CraneHireGuide() {
               </section>
 
               {/* Section 6: The Hiring Process */}
-              <section id="hiring-process" className="scroll-mt-24 mb-12">
+              <section id="hiring-process" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">6</span>
                   The Hiring Process
                 </h2>
-                <p>
+                <p className="text-gray-700 mb-6">
                   Understanding the typical crane hire process helps ensure your project runs smoothly.
                 </p>
 
-                <div className="not-prose space-y-4 my-6">
-                  {[
-                    {
-                      step: 1,
-                      title: 'Define Your Requirements',
-                      description: 'Determine load weight, lift radius, height, site access, and dates. The more accurate your information, the better quotes you\'ll receive.'
-                    },
-                    {
-                      step: 2,
-                      title: 'Get Multiple Quotes',
-                      description: 'Request quotes from 2-3 crane companies. Compare not just price, but what\'s included, company reputation, and availability.'
-                    },
-                    {
-                      step: 3,
-                      title: 'Site Survey (if needed)',
-                      description: 'For complex lifts, the crane company may want to visit the site. This ensures they recommend the right crane and identify any issues.'
-                    },
-                    {
-                      step: 4,
-                      title: 'Confirm Booking',
-                      description: 'Once you\'ve chosen a company, confirm the booking in writing. Clarify what\'s included, cancellation terms, and payment schedule.'
-                    },
-                    {
-                      step: 5,
-                      title: 'Pre-Lift Planning',
-                      description: 'For contract lift, the crane company handles this. For CPA hire, your Appointed Person prepares the lift plan and risk assessment.'
-                    },
-                    {
-                      step: 6,
-                      title: 'Lift Day',
-                      description: 'Crane arrives, sets up, and performs the lift. Ensure site is ready – clear access, ground prepared, and all personnel briefed.'
-                    },
-                    {
-                      step: 7,
-                      title: 'Completion & Payment',
-                      description: 'Once the lift is complete and crane has left, you\'ll receive an invoice. Payment terms vary but are typically 14-30 days.'
-                    }
-                  ].map((item) => (
+                <div className="space-y-4">
+                  {hiringSteps.map((item) => (
                     <div key={item.step} className="flex gap-4">
                       <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-bold flex-shrink-0">
                         {item.step}
@@ -627,18 +644,17 @@ export default function CraneHireGuide() {
               </section>
 
               {/* Section 7: Safety & Regulations */}
-              <section id="safety-regulations" className="scroll-mt-24 mb-12">
+              <section id="safety-regulations" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">7</span>
                   Safety & Regulations
                 </h2>
-                <p>
-                  Crane operations are heavily regulated in the UK to ensure safety. Understanding these 
-                  requirements helps you stay compliant and avoid accidents.
+                <p className="text-gray-700 mb-6">
+                  Crane operations are heavily regulated in the UK to ensure safety.
                 </p>
 
-                <h3>Key Regulations</h3>
-                <div className="not-prose space-y-4 my-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Key Regulations</h3>
+                <div className="space-y-4 mb-6">
                   <div className="bg-gray-50 rounded-xl p-5">
                     <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                       <Shield className="w-5 h-5 text-primary-500" />
@@ -671,39 +687,7 @@ export default function CraneHireGuide() {
                   </div>
                 </div>
 
-                <h3>Key Roles in Crane Operations</h3>
-                <div className="not-prose grid md:grid-cols-2 gap-4 my-6">
-                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                    <h4 className="font-bold text-amber-800 mb-2">Appointed Person (AP)</h4>
-                    <p className="text-amber-900 text-sm">
-                      Plans lifting operations, selects equipment, assesses risks. Must hold CPCS AP card or equivalent. 
-                      Required for all lifts – provided by you (CPA) or crane company (contract lift).
-                    </p>
-                  </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                    <h4 className="font-bold text-amber-800 mb-2">Crane Operator</h4>
-                    <p className="text-amber-900 text-sm">
-                      Operates the crane. Must hold CPCS crane operator card for the relevant crane category. 
-                      Usually provided by the crane hire company.
-                    </p>
-                  </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                    <h4 className="font-bold text-amber-800 mb-2">Slinger / Signaller</h4>
-                    <p className="text-amber-900 text-sm">
-                      Attaches loads and gives signals to the operator. Must be trained and competent. 
-                      Required for most lifts – provided by you (CPA) or crane company (contract lift).
-                    </p>
-                  </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                    <h4 className="font-bold text-amber-800 mb-2">Crane Supervisor</h4>
-                    <p className="text-amber-900 text-sm">
-                      Oversees the lifting operation on site. Ensures lift plan is followed and conditions remain safe. 
-                      May be combined with other roles on smaller lifts.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="not-prose bg-red-50 border-l-4 border-red-500 p-4 my-6">
+                <div className="bg-red-50 border-l-4 border-red-500 p-4">
                   <h4 className="font-bold text-red-800 mb-2 flex items-center gap-2">
                     <AlertTriangle className="w-5 h-5" />
                     Important Safety Note
@@ -717,47 +701,14 @@ export default function CraneHireGuide() {
               </section>
 
               {/* Section 8: Tips */}
-              <section id="tips" className="scroll-mt-24 mb-12">
+              <section id="tips" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">8</span>
                   Tips for a Successful Hire
                 </h2>
                 
-                <div className="not-prose space-y-4 my-6">
-                  {[
-                    {
-                      title: 'Book Early',
-                      tip: 'Especially for larger cranes or busy periods. 2-3 weeks minimum for standard hire, longer for specialist equipment.'
-                    },
-                    {
-                      title: 'Be Accurate with Requirements',
-                      tip: 'Measure load weights and distances carefully. Underestimating means the crane can\'t do the job; overestimating means you pay for more crane than needed.'
-                    },
-                    {
-                      title: 'Get Multiple Quotes',
-                      tip: 'Prices vary significantly. Getting 3 quotes helps you understand the market rate and find the best value.'
-                    },
-                    {
-                      title: 'Clarify What\'s Included',
-                      tip: 'Ensure you understand exactly what\'s covered in the quote – transport, operator hours, fuel, insurance, etc.'
-                    },
-                    {
-                      title: 'Prepare Your Site',
-                      tip: 'Clear access, stable ground, and a safe working area. Delays caused by site issues are typically charged to you.'
-                    },
-                    {
-                      title: 'Check Weather Forecasts',
-                      tip: 'High winds can prevent crane operations. Monitor forecasts and have contingency plans for weather delays.'
-                    },
-                    {
-                      title: 'Communicate Clearly',
-                      tip: 'Brief everyone involved. Make sure the crane operator knows exactly what\'s being lifted and where it\'s going.'
-                    },
-                    {
-                      title: 'Consider Contract Lift for Complex Lifts',
-                      tip: 'The extra cost is often worth it for the peace of mind and transferred liability on difficult operations.'
-                    }
-                  ].map((item, index) => (
+                <div className="space-y-4">
+                  {tips.map((item, index) => (
                     <div key={index} className="flex gap-3 items-start">
                       <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
                       <div>
@@ -770,13 +721,13 @@ export default function CraneHireGuide() {
               </section>
 
               {/* Section 9: FAQs */}
-              <section id="faqs" className="scroll-mt-24 mb-12">
+              <section id="faqs" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                   <span className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 font-bold">9</span>
                   Frequently Asked Questions
                 </h2>
                 
-                <div className="not-prose space-y-4 my-6">
+                <div className="space-y-4">
                   {faqs.map((faq, index) => (
                     <div key={index} className="bg-gray-50 rounded-xl p-6">
                       <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-2">
